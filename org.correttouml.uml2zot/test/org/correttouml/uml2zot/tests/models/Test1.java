@@ -3,20 +3,29 @@ package org.correttouml.uml2zot.tests.models;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
-
 import org.apache.log4j.Logger;
 import org.correttouml.uml2zot.UML2Zot;
 import org.correttouml.uml2zot.tests.TestHelper;
 import org.junit.Test;
 
-public class Test1 {
 
+public class Test1 {
 	private static final Logger LOGGER = Logger.getLogger(Test1.class); 
-	
 	/** THE CCAS MODEL */
 	//private String MODEL_FILE="testmodels/ccas/v0.1/model.uml";
 	//private String MODEL_FILE="testmodels/ccas/v0.2/model.uml";
 	//private String MODEL_FILE="testmodels/plugin/model.uml";
+	
+	/** SD_CF */
+//	private String MODEL_FILE="testmodels/SD_CF/CF_Alt/model.uml";
+//	private String MODEL_FILE="testmodels/SD_CF/SD_IF/model.uml";
+//	private String MODEL_FILE="testmodels/SD_CF/CF_Opt/model.uml";
+//	private String MODEL_FILE="testmodels/SD_CF/CF_Par/model.uml";
+//	private String MODEL_FILE="testmodels/SD_CF/CF_Loop/model.uml";
+//	private String MODEL_FILE="testmodels/SD_CF/Ex1/model.uml";
+//	private String MODEL_FILE="testmodels/SD_CF/CF_Break/model.uml";
+//	private String MODEL_FILE="testmodels/SD_CF/CF_Loop/model.uml";
+	private String MODEL_FILE="testmodels/SD_CF/Server/model.uml";
 	
 	/** SEQUENCE DIAGRAM TESTING */
 	//private String MODEL_FILE="testmodels/sequencediagram/test1/model.uml";
@@ -31,7 +40,7 @@ public class Test1 {
 	//private String MODEL_FILE="testmodels/iod/test1/model.uml";
 	
 	/** TXT RADAR MODEL */
-	private String MODEL_FILE="testmodels/txt/v0.1/model.uml";
+	//private String MODEL_FILE="testmodels/txt/v0.1/model.uml";
 	
 	/** CASSIDIAN RADAR MODEL */
 	//private String MODEL_FILE="testmodels/cassidian/model.uml";
@@ -40,7 +49,7 @@ public class Test1 {
 	//private String MODEL_FILE="testmodels/atm_omega/v0.1/model.uml";
 	
 	/** SD and StD **/
-	//private String MODEL_FILE="testmodels/SD_and_StD/test1/model.uml";
+//	private String MODEL_FILE="testmodels/SD_and_StD/test1/model.uml";
 	
 	/** ASSIGNMENTS IN TRANSACTIONS */
 	//private String MODEL_FILE="testmodels/variables/assignments_in_transactions/model.uml";
@@ -49,7 +58,7 @@ public class Test1 {
 	//private String MODEL_FILE="testmodels/lamp/model.uml";
 	
 	/** TIME CONSTRAINTS **/
-	//private String MODEL_FILE="testmodels/timeconstraints/MehdiTest1/model.uml";
+//	private String MODEL_FILE="testmodels/timeconstraints/MehdiTest1/model.uml";
 	//private String MODEL_FILE="testmodels/timeconstraints/MehdiTest2/model.uml";
 	
 	/** The UML2ZOT entry point for making the transformation */
@@ -67,7 +76,7 @@ public class Test1 {
 		LOGGER.info("Generate the Mappings File");
 		t.generateMappingsFile(new File("tmp/model.mappings"));
 		
-		assertTrue("Il file di ZOT contiene degli errori",testHelper.isZOTFileValid());
+		assertTrue("The ZOT file contains errors ",testHelper.isZOTFileValid());
 		
 		testHelper.cleanUp();
 	}
