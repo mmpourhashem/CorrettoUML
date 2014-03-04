@@ -1,4 +1,0 @@
-CorrettoUML
-===========
-
-CorrettoUML
