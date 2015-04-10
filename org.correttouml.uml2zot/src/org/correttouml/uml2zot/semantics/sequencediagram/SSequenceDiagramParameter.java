@@ -21,10 +21,10 @@ public class SSequenceDiagramParameter implements SVariable{
 		this.mades_sdp = sdp;
 	}
 
-	public String getSemantics() {
+		public String getSemantics() {
 		String sem="";
-		Predicate sd_inside=new SSequenceDiagram(this.mades_sdp.getSequenceDiagram()).getPredicate();
-		
+//		Predicate sd_inside=new SSequenceDiagram(this.mades_sdp.getSequenceDiagram()).getPredicate();
+		BooleanFormulae sd_insideNotFirstTI = new And (new SSequenceDiagram(this.mades_sdp.getSequenceDiagram()).getPredicate(), new Not(new SSequenceDiagram(this.mades_sdp.getSequenceDiagram()).getPredicateStart()));
 		//TODO: Put back assignments for sequence diagrams parameters
 //		// The sequence diagram parameter has always the same value
 //		// if we do not make any assignment to it
@@ -44,10 +44,11 @@ public class SSequenceDiagramParameter implements SVariable{
 			eq = new EQ(this.getPredicate(), new Yesterday(this.getPredicate()));
 		}
 		
-		sem=sem+new Implies(sd_inside,eq) + "\n";
+		sem=sem+new Implies(sd_insideNotFirstTI,eq) + "\n";
 		
 		return sem;
 	}
+
 
 	@Override
 	public BooleanFormulae getPredicate(Object... obj) {
